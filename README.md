@@ -2,7 +2,7 @@
 
 Este projeto é um dashboard interativo desenvolvido com [Streamlit](https://streamlit.io/), focado em **análise logística estratégica**. Ele permite visualizar e extrair insights sobre fretes, rotas, custos por km, clientes, transportadoras e muito mais.
 
-![Demo do Dashboard](https://micro-saas-logistica-demo-emhmpvqmxwadso3jmm7bb3.streamlit.app/)
+[Demo do Dashboard](https://micro-saas-logistica-demo-emhmpvqmxwadso3jmm7bb3.streamlit.app/)
 
 ---
 
@@ -18,7 +18,7 @@ Este projeto é um dashboard interativo desenvolvido com [Streamlit](https://str
 
 ---
 
-## 🚀 Deploy
+ 🚀 Deploy
 
 Este projeto pode ser publicado no [Streamlit Cloud](https://streamlit.io/cloud) com um clique:
 
@@ -26,7 +26,7 @@ Este projeto pode ser publicado no [Streamlit Cloud](https://streamlit.io/cloud)
 
 ---
 
-## 🧰 Tecnologias Utilizadas
+ 🧰 Tecnologias Utilizadas
 
 - Python 3.11+
 - Streamlit
@@ -37,5 +37,34 @@ Este projeto pode ser publicado no [Streamlit Cloud](https://streamlit.io/cloud)
 
 ---
 
-## 🗂️ Estrutura
+ 🗂️ Estrutura
+📁 micro-saas-logistica-demo/
+├── 📄 dashbord.py
+├── 📄 dashboard_style.css
+├── 📄 rotas.json
+└── 📁 .streamlit/
+└── config.toml 
+
+
+
+---
+
+## 📸 Imagens
+
+![Dashboard geral](https://user-images.githubusercontent.com/SEU_USER/dashboard1.png)
+![Exportação](https://user-images.githubusercontent.com/SEU_USER/export.png)
+
+---
+
+## ✍️ Autor
+
+**Luis Henrique Camargo**  
+🔗 [LinkedIn](https://www.linkedin.com/in/luisanalista) • 📧 [Email](mailto:lh.santos2013@gmail.com)
+
+---
+
+## 📌 Observações
+
+- Os dados estão fictícios ou anonimizados para demonstração.
+- O projeto pode ser facilmente adaptado para produção, integrando banco de dados real, autenticação e multiusuário.
 
