@@ -49,10 +49,10 @@ Este projeto pode ser publicado no [Streamlit Cloud](https://streamlit.io/cloud)
 
 ---
 
-## 📸 Imagens
+ 📸 Imagens
+![image](https://github.com/user-attachments/assets/781c2985-cac8-4c78-a7c8-af993d7fc4ba)
 
-![Dashboard geral](https://user-images.githubusercontent.com/SEU_USER/dashboard1.png)
-![Exportação](https://user-images.githubusercontent.com/SEU_USER/export.png)
+
 
 ---
 
