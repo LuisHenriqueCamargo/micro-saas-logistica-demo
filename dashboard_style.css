@@ -1,0 +1,84 @@
+/* === Layout geral === */
+html, body, .stApp {
+    background-color: #f9f9f9;
+    color: #222;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* === Sidebar === */
+.css-6qob1r, .stSidebar {
+    background-color: #f0f4f8;
+    color: #000;
+}
+
+.css-1aumxhk, .css-1v0mbdj {
+    background-color: #f0f4f8 !important;
+    color: #000 !important;
+    border-radius: 10px;
+}
+
+/* === Títulos e Subtítulos === */
+h1, h2, h3, h4, h5, h6 {
+    color: #1a1a1a;
+}
+
+.st-cf {
+    background-color: transparent;
+}
+
+/* === Métricas === */
+[data-testid="stMetric"] {
+    background-color: #e9efff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    color: #003366;
+}
+
+[data-testid="stMetricLabel"] {
+    font-weight: 600;
+    color: #4169E1;
+}
+
+/* === Gráficos === */
+.js-plotly-plot .plot-container .svg-container {
+    background-color: #ffffff !important;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+/* === Dataframe === */
+.css-1d391kg {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    color: #111;
+}
+
+/* === Botão de download === */
+button[data-testid="baseButton-primary"] {
+    background-color: #003366;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+
+button[data-testid="baseButton-primary"]:hover {
+    background-color: #002244;
+    transform: scale(1.02);
+}
+
+/* === Scrollbar leve === */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e2e6ec;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4169E1;
+    border-radius: 8px;
+}

@@ -1,0 +1,153 @@
+import os
+import pandas as pd
+import openrouteservice
+from datetime import datetime
+from tinydb import TinyDB, Query
+from pathlib import Path
+import xlsxwriter
+
+# === CONFIGURAÇÕES ===
+ORS_API_KEY = "5b3ce3597851110001cf62481247f0b46098443fa36ee782e4c0430a"
+DB_PATH = "rotas.json"
+CTE_FOLDER = "cte_files"
+DADOS_BASE = "dados_base"
+INSIGHTS_FOLDER = "insights"
+MODELO_PATH = os.path.join(CTE_FOLDER, "cte_modelo.xlsx")
+RELATORIO_PATH = os.path.join(INSIGHTS_FOLDER, "relatorio_logistico.xlsx")
+
+# === INICIALIZA API ORS ===
+client = openrouteservice.Client(key=ORS_API_KEY)
+
+# === CRIA ESTRUTURA DE PASTAS ===
+Path(CTE_FOLDER).mkdir(parents=True, exist_ok=True)
+Path(DADOS_BASE).mkdir(parents=True, exist_ok=True)
+Path(INSIGHTS_FOLDER).mkdir(parents=True, exist_ok=True)
+
+# === CRIA PLANILHAS MODELO SE NÃO EXISTIREM ===
+def criar_planilhas_modelo():
+    if not os.path.exists(MODELO_PATH):
+        dados_exemplo = {
+            "cte_numero": ["CTE001", "CTE002"],
+            "filial": ["Campinas", "São Paulo"],
+            "origem_latitude": [-22.9056, -23.5505],
+            "origem_longitude": [-47.0608, -46.6333],
+            "destino_latitude": [-23.5505, -22.9056],
+            "destino_longitude": [-46.6333, -47.0608],
+            "destino_nome": ["Centro SP", "Campinas Centro"],
+            "frete_valor": [1200.0, 950.0],
+            "frequencia_semanal": [3, 2],
+        }
+        pd.DataFrame(dados_exemplo).to_excel(MODELO_PATH, index=False)
+
+    for nome in ["clientes", "filiais", "transportadoras"]:
+        path = os.path.join(DADOS_BASE, f"{nome}.xlsx")
+        if not os.path.exists(path):
+            df = pd.DataFrame({"nome": [f"{nome}_exemplo"], "latitude": [-23.0], "longitude": [-46.0]})
+            df.to_excel(path, index=False)
+
+# === CONECTA OU CRIA BANCO ===
+def iniciar_banco_local():
+    if not os.path.exists(DB_PATH):
+        open(DB_PATH, 'w').close()
+    return TinyDB(DB_PATH)
+
+# === SALVA NO BANCO COM DEDUPLICAÇÃO ===
+def salvar_rota_cte(db, dados_rota):
+    CT = Query()
+    existente = db.search((CT.cte_numero == dados_rota['cte_numero']) & (CT.filial == dados_rota['filial']))
+    if not existente:
+        db.insert(dados_rota)
+        print(f"✅ CT-e {dados_rota['cte_numero']} salvo.")
+    else:
+        print(f"⚠️ CT-e {dados_rota['cte_numero']} já existe. Ignorado.")
+
+# === PROCESSA PLANILHA DE FRETE ===
+def processar_arquivo(db, file_path):
+    df = pd.read_excel(file_path)
+    for _, row in df.iterrows():
+        try:
+            origem_coords = [row['origem_longitude'], row['origem_latitude']]
+            destino_coords = [row['destino_longitude'], row['destino_latitude']]
+
+            response = client.directions(
+                coordinates=[origem_coords, destino_coords],
+                profile='driving-car',
+                format='geojson'
+            )
+            summary = response['features'][0]['properties']['summary']
+
+            dados_rota = {
+                "cte_numero": row['cte_numero'],
+                "filial": row.get('filial', 'Não Informado'),
+                "origem_coords": f"{row['origem_latitude']},{row['origem_longitude']}",
+                "destino_coords": f"{row['destino_latitude']},{row['destino_longitude']}",
+                "destino_nome": row.get('destino_nome', ''),
+                "frete_valor": float(row.get('frete_valor', 0)),
+                "frequencia_semanal": int(row.get('frequencia_semanal', 1)),
+                "distancia_km": round(summary['distance'] / 1000, 2),
+                "duracao_min": round(summary['duration'] / 60, 2),
+                "data_hora": datetime.now().isoformat()
+            }
+
+            # Colunas extras opcionais (transportadora, cliente, região, etc.)
+            colunas_extras = ['transportadora', 'cliente', 'região', 'produto']
+            for coluna in colunas_extras:
+                if coluna in df.columns:
+                    dados_rota[coluna] = row.get(coluna, 'Não Informado')
+
+            salvar_rota_cte(db, dados_rota)
+
+        except Exception as e:
+            print(f"❌ Erro no CT-e {row.get('cte_numero', '---')} ({file_path}): {e}")
+
+# === PROCESSA TODOS OS ARQUIVOS NA PASTA ===
+def processar_pasta_cte(db, pasta):
+    arquivos = sorted([
+        f for f in os.listdir(pasta)
+        if f.endswith(".xlsx") and not f.startswith("~$")
+    ])
+    if not arquivos:
+        print("📂 Nenhum arquivo .xlsx encontrado.")
+        return
+    for arquivo in arquivos:
+        caminho = os.path.join(pasta, arquivo)
+        print(f"\n🔄 Processando: {arquivo}")
+        processar_arquivo(db, caminho)
+
+# === GERA INSIGHTS ===
+def gerar_insights(db):
+    df = pd.DataFrame(db.all())
+    if df.empty:
+        print("⚠️ Nenhum dado disponível para gerar insights.")
+        return df
+    df['custo_km'] = df['frete_valor'] / df['distancia_km'].replace({0: 1})
+    df['custo_mensal'] = df['frete_valor'] * df['frequencia_semanal'] * 4
+    return df
+
+# === EXPORTA RELATÓRIO COM GRÁFICOS ===
+def exportar_relatorio_excel(df):
+    writer = pd.ExcelWriter(RELATORIO_PATH, engine='xlsxwriter')
+    df.to_excel(writer, sheet_name='Resumo', index=False)
+
+    workbook = writer.book
+    sheet = writer.sheets['Resumo']
+    grafico = workbook.add_chart({'type': 'column'})
+    grafico.add_series({
+        'name': 'Custo mensal',
+        'categories': ['Resumo', 1, 0, len(df), 0],
+        'values':     ['Resumo', 1, df.columns.get_loc('custo_mensal'), len(df), df.columns.get_loc('custo_mensal')],
+    })
+    grafico.set_title({'name': 'Top Custos Mensais'})
+    sheet.insert_chart('K2', grafico)
+
+    writer.close()
+    print(f"📈 Relatório exportado para: {RELATORIO_PATH}")
+
+# === EXECUÇÃO PRINCIPAL ===
+if __name__ == "__main__":
+    criar_planilhas_modelo()
+    db = iniciar_banco_local()
+    processar_pasta_cte(db, CTE_FOLDER)
+    df_insights = gerar_insights(db)
+    if not df_insights.empty:
+        exportar_relatorio_excel(df_insights)

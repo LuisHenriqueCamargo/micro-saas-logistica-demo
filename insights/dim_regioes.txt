@@ -1,0 +1,4 @@
+id|nome
+c7b41bc7-e11f-4389-83c7-beafc1f70ad3|CENTRO-OESTE
+aa910cbe-820d-412d-a833-5b76209bcb6b|SUL
+56742a28-1b24-48d8-89aa-df6fd6de6778|SUDESTE
