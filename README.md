@@ -53,11 +53,11 @@ Este projeto pode ser publicado no [Streamlit Cloud](https://streamlit.io/cloud)
 
 ---
 
-## ✍️ Autor
+ ✍️ Autor
 
 **Luis Henrique Camargo**  
-🔗 [LinkedIn](https://www.linkedin.com/in/luisanalista) 
-Tel : 11-94088-0735
+ Tel : 11-94088-0735 
+ E-mail : lh.santos2013@gmail.com 
 
 ---
 
