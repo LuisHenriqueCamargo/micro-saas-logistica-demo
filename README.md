@@ -1,22 +1,41 @@
-# 📦 Micro SaaS Logístico - Versão de Demonstração
+# 🚚 Micro-SaaS Logístico - Dashboard Estratégico
 
-Dashboard interativo com dados simulados de transporte. Ideal para consultorias, transportadoras e equipes de dados.
+Este projeto é um dashboard interativo desenvolvido com [Streamlit](https://streamlit.io/), focado em **análise logística estratégica**. Ele permite visualizar e extrair insights sobre fretes, rotas, custos por km, clientes, transportadoras e muito mais.
 
-## ✅ Funcionalidades
+![Demo do Dashboard](https://micro-saas-logistica-demo-emhmpvqmxwadso3jmm7bb3.streamlit.app/)
 
-- Total de fretes, KM rodados e custo médio por KM
-- Filtros por cliente e filial
-- Evolução de custos por cliente
-- Exemplo de cálculo de rota real (SP → RJ) com API
+---
 
-## 🚀 Tecnologias
+## 🔍 Funcionalidades
 
-- Python + Streamlit + Plotly
-- OpenRouteService API (exemplo de rota)
-- Pandas + CSV Simulado
+- 📦 Custo mensal por filial, cliente e transportadora
+- 📈 Evolução de fretes por mês
+- 🏆 Top 10 CT-es mais caros
+- 📊 Gráficos interativos (Plotly)
+- 📤 Exportação dos dados filtrados (CSV)
+- 🎯 Filtros dinâmicos (filial, cliente, região etc.)
+- 💅 Estilo customizado via CSS (opcional)
 
-## 🔒 Observações
+---
 
-Esta versão é apenas demonstrativa. A lógica completa de ETL, integração com ERP e bancos SQL está disponível sob consulta.
+## 🚀 Deploy
 
-📩 Quer aplicar essa solução no seu negócio? Entre em contato para uma demo completa!
+Este projeto pode ser publicado no [Streamlit Cloud](https://streamlit.io/cloud) com um clique:
+
+[![Deploy on Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/)
+
+---
+
+## 🧰 Tecnologias Utilizadas
+
+- Python 3.11+
+- Streamlit
+- Pandas
+- Plotly
+- TinyDB (banco de dados local)
+- HTML/CSS
+
+---
+
+## 🗂️ Estrutura
+
