@@ -2,15 +2,19 @@ import streamlit as st
 import pandas as pd
 from tinydb import TinyDB
 import plotly.express as px
+import os
 
 # === CONFIGURAÇÃO ===
 st.set_page_config(page_title="Dashboard Logístico", layout="wide")
 DB_PATH = "rotas.json"
-CSS_PATH = r"F:\LUIS H\Pipeline-API\dashboard_style.css"
 
-# === INJETAR ESTILO CUSTOM ===
-with open(CSS_PATH, "r", encoding="utf-8") as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+# === INJETAR ESTILO CUSTOM (opcional) ===
+try:
+    CSS_PATH = os.path.join(os.path.dirname(__file__), "dashboard_style.css")
+    with open(CSS_PATH, "r", encoding="utf-8") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+except FileNotFoundError:
+    st.warning("⚠️ Arquivo de estilo CSS não encontrado. Usando visual padrão.")
 
 # === CARREGAR DADOS ===
 @st.cache_data
