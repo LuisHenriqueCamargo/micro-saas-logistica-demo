@@ -24,8 +24,6 @@ Este projeto pode ser publicado no [Streamlit Cloud](https://streamlit.io/cloud)
 
 [![Deploy on Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/)
 
----
-
  🧰 Tecnologias Utilizadas
 
 - Python 3.11+
@@ -34,9 +32,7 @@ Este projeto pode ser publicado no [Streamlit Cloud](https://streamlit.io/cloud)
 - Plotly
 - TinyDB (banco de dados local)
 - HTML/CSS
-
----
-
+----
  🗂️ Estrutura
 📁 micro-saas-logistica-demo/
 ├── 📄 dashbord.py
@@ -44,8 +40,6 @@ Este projeto pode ser publicado no [Streamlit Cloud](https://streamlit.io/cloud)
 ├── 📄 rotas.json
 └── 📁 .streamlit/
 └── config.toml 
-
-
 
 ---
 
@@ -62,7 +56,8 @@ Este projeto pode ser publicado no [Streamlit Cloud](https://streamlit.io/cloud)
 ## ✍️ Autor
 
 **Luis Henrique Camargo**  
-🔗 [LinkedIn](https://www.linkedin.com/in/luisanalista) • 📧 [Email](mailto:lh.santos2013@gmail.com)
+🔗 [LinkedIn](https://www.linkedin.com/in/luisanalista) 
+Tel : 11-94088-0735
 
 ---
 
