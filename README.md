@@ -34,6 +34,7 @@ Este projeto pode ser publicado no [Streamlit Cloud](https://streamlit.io/cloud)
 - HTML/CSS
 ----
  🗂️ Estrutura
+ 
 📁 micro-saas-logistica-demo/
 ├── 📄 dashbord.py
 ├── 📄 dashboard_style.css
@@ -55,6 +56,7 @@ Este projeto pode ser publicado no [Streamlit Cloud](https://streamlit.io/cloud)
 
  ✍️ Autor
 Especialista em Logística e Transporte - Foco em Dados 
+
 **Luis Henrique Camargo**  
  Tel : 11-94088-0735 
  E-mail : lh.santos2013@gmail.com 
