@@ -1,4 +1,5 @@
 🚚 Micro-SaaS Logístico — Inteligência Estratégica para Transporte
+
 Solução profissional desenvolvida em Python para transformar dados logísticos em insights estratégicos, otimizando custos, rotas e performance operacional. Ideal para transportadoras, operadores logísticos, centros de distribuição e profissionais de BI que atuam com frete, CT-e, Power BI e controle de custos.
 
 🎯 Pronto para uso | 100% local | Personalizável para empresas
@@ -41,30 +42,20 @@ Pandas + Plotly (análise de dados e visualização)
 HTML/CSS (estilo customizado)
 
 🛠️ Estrutura do Projeto
-arduino
-Copiar
-Editar
+
 📁 micro-saas-logistica-demo/
 ├── dashboard.py             → código principal Streamlit
 ├── dashboard_style.css      → customização visual
 ├── rotas.json               → banco de dados TinyDB
 └── .streamlit/
     └── config.toml          → configuração do deploy
+
+    
 📷 Visual do Dashboard
 
-
-
-
-🚀 Como Usar ou Implementar
-Faça o clone deste repositório
-
-Instale as dependências com pip install -r requirements.txt
-
-Rode o projeto com streamlit run dashboard.py
-
-Substitua os dados fictícios pelos seus (clientes, CT-es, filiais)
-
-Pronto! Sua equipe já pode tomar decisões com base nos dados
+![image](https://github.com/user-attachments/assets/781c2985-cac8-4c78-a7c8-af993d7fc4ba) 
+![image](https://github.com/user-attachments/assets/2ebf5040-3059-4bc8-996a-fbf93eb04dfa)
+![image](https://github.com/user-attachments/assets/d21eb850-4feb-4ba9-a667-6bb7b26d440e)
 
 💡 Também pode ser adaptado para uso multiusuário, em nuvem ou integrado ao seu ERP.
 
@@ -74,4 +65,4 @@ Especialista em Transporte com Foco em Dados | Business Intelligence Logístico
 
 📧 lh.santos2013@gmail.com
 📱 +55 11 94088-0735
-🔗 LinkedIn (adicione depois)
+🔗 https://www.linkedin.com/in/luisanalista/
