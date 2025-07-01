@@ -2,7 +2,7 @@
 
 Este projeto é um dashboard interativo desenvolvido com [Streamlit](https://streamlit.io/), focado em **análise logística estratégica**. Ele permite visualizar e extrair insights sobre fretes, rotas, custos por km, clientes, transportadoras e muito mais.
 
-![Demo do Dashboard](https://micro-saas-logistica-demo-emhmpvqmxwadso3jmm7bb3.streamlit.app/)
+![Demo do Dashboard](https://micro-saas-logistica-demo-emhmpvqmxwadso3jmm7bb3.streamlit.app/),
 
 ---
 
