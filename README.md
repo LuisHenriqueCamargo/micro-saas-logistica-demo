@@ -4,7 +4,7 @@ Solução profissional desenvolvida em Python para transformar dados logísticos
 
 🎯 Pronto para uso | 100% local | Personalizável para empresas
 
-🔗 Acesse o Dashboard ao Vivo
+🔗 Acesse > https://micro-saas-logistica-demo-emhmpvqmxwadso3jmm7bb3.streamlit.app/
 
 💡 Benefícios para Empresas
 Reduza custos por km com análise automatizada de fretes
