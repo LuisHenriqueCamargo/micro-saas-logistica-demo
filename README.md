@@ -91,9 +91,7 @@ HTML/CSS (estilo customizado)
     
 📷 Visual do Dashboard
 
-![image](https://github.com/user-attachments/assets/781c2985-cac8-4c78-a7c8-af993d7fc4ba) 
-![image](https://github.com/user-attachments/assets/2ebf5040-3059-4bc8-996a-fbf93eb04dfa)
-![image](https://github.com/user-attachments/assets/d21eb850-4feb-4ba9-a667-6bb7b26d440e)
+
 
 💡 Também pode ser adaptado para uso multiusuário, em nuvem ou integrado ao seu ERP.
 
