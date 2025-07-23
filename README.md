@@ -91,6 +91,8 @@ HTML/CSS (estilo customizado)
     
 📷 Visual do Dashboard
 
+<img width="585" height="161" alt="image" src="https://github.com/user-attachments/assets/32398d00-3f38-44ab-b535-1c5591b1208a" />
+
 <img width="1339" height="619" alt="image" src="https://github.com/user-attachments/assets/686dbedd-bbf2-49d2-9f60-0f8956f6fea0" />
 
 
