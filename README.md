@@ -1,63 +1,76 @@
-# 🚚 Micro-SaaS Logístico — Dashboard Estratégico de Performance
+🚚 Micro-SaaS Logístico — Motor de Decisão Tática e Otimização de Fretes
+Este projeto é um Protótipo de Conceito (POC) que demonstra a arquitetura para uma Torre de Controle Tática. Desenvolvido com Python e Streamlit, seu foco principal é transformar dados brutos de frete em Decisão Prescritiva e Otimização de Custos (OPEX).
 
-Este projeto é um **dashboard interativo e inteligente**, desenvolvido com [Streamlit](https://streamlit.io/) e **focado em análise logística estratégica**.  
-Permite **visualizar, comparar e otimizar custos logísticos**, identificando padrões de frete, rotas, filiais, clientes e transportadoras — tudo de forma automatizada e acessível.
+Ele atua como um Data Mart leve e um motor de visualização, permitindo a auditoria e o mapeamento de exceções logísticas em tempo real.
 
-🔗 **Demo pública:**  
-[https://micro-saas-logistica-demo-emhmpvqmxwadso3jmm7bb3.streamlit.app/](https://micro-saas-logistica-demo-emhmpvqmxwadso3jmm7bb3.streamlit.app/)
+🔗 Demo pública: https://micro-saas-logistica-demo-emhmpvqmxwadso3jmm7bb3.streamlit.app/
 
----
+📈 Entregáveis Estratégicos (Impacto no Negócio)
+Este sistema não apenas visualiza, ele permite a ação imediata através de indicadores claros:
 
-## 🔍 Funcionalidades Principais
+✅ Auditoria e Otimização de Custo por KM: Identifica e quantifica desvios de frete por rota, permitindo a redução imediata de custos de transporte.
+✅ Visão de Performance Gerencial: Compara o desempenho de Filiais, Clientes e Transportadoras, fornecendo dados concretos para renegociação e melhoria do Nível de Serviço (SLA).
+✅ Rastreabilidade de Exceções: Gera o Ranking dos Top 10 CT-es de maior impacto financeiro, permitindo a investigação tática focada onde o prejuízo é maior.
+✅ Agilidade na Decisão (POC): Por rodar 100% localmente via TinyDB, demonstra a capacidade de implantar soluções de análise tática com zero latência e baixo custo de infraestrutura (ideal para POCs e MVPs).
 
-- 📦 Análise de custo mensal por **filial, cliente e transportadora**  
-- 📈 Evolução temporal dos **fretes e custos operacionais**  
-- 🏆 Ranking dos **Top 10 CT-es de maior impacto financeiro**  
-- 📊 **Gráficos interativos** e filtros dinâmicos (filial, cliente, região etc.)  
-- 📤 **Exportação de dados filtrados** (CSV, Power BI, Excel ou PDF)  
-- 🎨 Interface **visual moderna e personalizável** (CSS customizado)  
-- 🔐 **Execução 100% local** via TinyDB — sem dependência de nuvem  
+🏗️ Arquitetura e Stack Técnica
+O projeto utiliza uma micro-arquitetura orientada a dados focada em desempenho e simplicidade para ambientes de POC/MVP.
 
----
+Categoria
 
-## 💡 Benefícios Estratégicos
+Ferramentas
 
-✅ **Reduza custos por km** com análise automatizada de fretes  
-✅ **Otimize negociações** com transportadoras através de dados reais  
-✅ **Compare desempenho entre filiais e rotas** em tempo real  
-✅ **Melhore a tomada de decisão** com KPIs logísticos centralizados  
+Foco de Engenharia
 
----
+Linguagem Core
 
-## 🧠 Aplicações Corporativas
+Python 3.11+
 
-Este projeto pode ser:
-- Implantado **localmente** como ferramenta de gestão de fretes  
-- Adaptado para **multiusuário** em ambiente cloud  
-- Integrado via **API** com ERPs, WMS e TMS  
-- Incorporado a **torres de controle logístico (DAXLOG)** para monitoramento centralizado  
+Lógica de processamento e estruturação de dados.
 
----
+Pipeline & Data Mart
 
-## ⚙️ Tecnologias Utilizadas
+Pandas, TinyDB
 
-| Categoria | Ferramentas |
-|------------|-------------|
-| Linguagem | **Python 3.11+** |
-| Visualização | **Streamlit**, **Plotly** |
-| Banco de Dados | **TinyDB** (banco local em JSON) |
-| Processamento | **Pandas** |
-| Front-end | **HTML / CSS (customização visual)** |
+Processamento de dados em memória e armazenamento de dados em schema local (JSON).
 
----
+Visualização & API
 
-## 🗂️ Estrutura do Projeto
+Streamlit, Plotly
 
-```bash
-📁 micro-saas-logistica-demo/
-├── dashboard.py             → Código principal (lógica e interface Streamlit)
-├── dashboard_style.css      → Customização visual (tema azul DAXLOG)
-├── rotas.json               → Banco de dados TinyDB (dados de rotas e fretes)
-└── .streamlit/
-    └── config.toml          → Configuração de deploy no Streamlit Cloud
+Front-end interativo com baixa curva de desenvolvimento e alta velocidade de entrega (Rapid Prototyping).
 
+Customização
+
+HTML / CSS
+
+Refinamento da interface para alinhamento com a identidade corporativa (UX/UI).
+
+⚙️ Configuração e Execução Local
+Este projeto foi projetado para demonstrar a execução rápida e a lógica do motor de regras.
+
+Pré-requisitos
+Certifique-se de ter o Python 3.11+ instalado.
+
+1. Instalação das Dependências
+Clone o repositório e instale as bibliotecas necessárias:
+
+git clone [https://github.com/LuisHenriqueCamargo/micro-saas-logistica-demo](https://github.com/LuisHenriqueCamargo/micro-saas-logistica-demo)
+cd micro-saas-logistica-demo
+pip install -r requirements.txt # (Ou instale manualmente: streamlit, pandas, tinydb, plotly)
+
+2. Execução do Dashboard
+Inicie a aplicação via Streamlit:
+
+streamlit run dashboard.py
+
+A aplicação será aberta automaticamente no seu navegador, consumindo os dados do arquivo rotas.json.
+
+🧠 Aplicações Futuras (Visão 5.0)
+Esta arquitetura pode ser facilmente escalada e integrada:
+
+Evolução do Data Mart: Migração de TinyDB para PostgreSQL ou AWS RDS para suportar volumes maiores.
+
+Microserviços: Adaptação da lógica do dashboard para uma API Flask dedicada (como a do projeto DAXLOG) para consumo por múltiplos dashboards (Power BI, Metabase, etc.).
+
+Integração: Conexão direta via API REST com sistemas TMS/WMS, eliminando a ingestão manual de arquivos.
